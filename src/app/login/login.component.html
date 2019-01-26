@@ -1,0 +1,43 @@
+<div *ngIf='loginPage'>
+  <form #userInfo="ngForm" (ngSubmit)="login(userInfo)" novalidate>
+    <div class="user-form">
+    
+      <mat-form-field>
+        <input matInput name="email" ngModel placeholder="email">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput name="password" ngModel type='password' placeholder="Password">
+      </mat-form-field>
+    
+      <button mat-raised-button color='primary'> Login </button>
+    </div>
+    <button mat-button color='primary' (click)="loginPage=!loginPage"> Register </button>
+  </form>
+</div>
+<div *ngIf='!loginPage'>
+  <form #userInfo="ngForm" (ngSubmit)="signUp(userInfo)" novalidate>
+    <div class="user-form">
+      <mat-form-field>
+        <input matInput name="firstName" ngModel placeholder="First Name">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput name="lastName" ngModel placeholder="Last Name">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput name="email" ngModel placeholder="email">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput name="password" ngModel type='password' placeholder="Password">
+      </mat-form-field>
+    
+      <button mat-raised-button color='primary'> Register </button>
+    </div>
+  </form>
+  <button mat-button color='primary' (click)="loginPage=!loginPage"> Login </button>
+</div>
+
+

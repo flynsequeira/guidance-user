@@ -1,0 +1,14 @@
+.field-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .field-container > * {
+    width: 90%;
+    margin-left: 5%;
+  }
+  
+.mat-button-row button,
+.mat-button-row a {
+  margin-right: 8px;
+}

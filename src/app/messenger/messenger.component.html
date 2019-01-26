@@ -1,0 +1,10 @@
+
+<mat-list>
+    <h2 mat-header>Users</h2>
+    <mat-list-item *ngFor="let student of students">
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+        <h3 mat-line [routerLink]="['../', 'chat', student._id]">{{student.firstName}}</h3>
+        <!-- <p mat-line> {{folder.updated | date}} </p> -->
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>

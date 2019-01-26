@@ -1,10 +1,48 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { UsersComponent } from './users/users.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth-guard.service';
+import { AddGoalComponent } from './home/add-goal/add-goal.component';
+import { MessengerComponent } from './messenger/messenger.component';
+import { ChatComponent } from './messenger/chat/chat.component';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'add-goal',
+    component: AddGoalComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-goal/:goal',
+    component: AddGoalComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'messenger',
+    component: MessengerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'chat/:user',
+    component: ChatComponent,
+    canActivate: [AuthGuard]
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

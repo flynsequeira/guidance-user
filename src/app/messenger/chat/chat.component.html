@@ -1,0 +1,37 @@
+<div class="chat-history">
+  <div *ngIf="messages && messages.length>0">
+    <div *ngFor="let message of messages">
+      <p [ngClass]="{'blue': message.user==user_id}">{{message.message}}</p>
+    </div>
+  </div>
+  <div *ngIf="messages && messages.length==0">
+    <p>Send the user your first message</p>
+  </div>
+</div>
+
+<div class="bottom-container chat-form">
+  <form novalidate>
+    <div class="user-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <span><i *ngIf="isTyping" class="isTyping">typing...</i></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <textarea matInput name="text" [(ngModel)]="message" class='full-width' placeholder="Write your message"></textarea>
+            </mat-form-field>
+          </td>
+          <td>
+            <button mat-icon-button color="primary">
+              <mat-icon aria-label="Send message by clicking here" (click)="sendMessage()">send</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
+

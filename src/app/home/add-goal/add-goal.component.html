@@ -1,0 +1,31 @@
+<mat-card>
+  <div class="field-container">
+      <mat-form-field>
+        <input matInput [(ngModel)]="goal.name" placeholder="Goal Name">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="goal.description" placeholder="Goal Description"></textarea>
+      </mat-form-field>
+      
+      <!-- field container within the field container -->
+      <div class="field-container">
+        <div *ngFor="let m of goal.milestones; let i=index;">
+          <mat-form-field>
+            <input matInput [(ngModel)]="goal.milestones[i].milestone" placeholder="Milestone">
+          </mat-form-field>
+          <button mat-icon-button (click)="removeMilestone(i)">
+            <mat-icon aria-label="Remove Milestone">close</mat-icon>
+          </button>
+        </div>
+        <!-- Button in the field-container -->
+        <div class="mat-button-row">
+          <button mat-stroked-button color="accent" (click)="addMilestone()">Add Milestone</button>
+        </div>
+      </div>
+      <br/><hr/>
+      <div class="mat-button-row">
+          <button mat-stroked-button color="primary" (click)="saveGoal()">Suggest Change</button>
+      </div>
+    </div>
+</mat-card>
