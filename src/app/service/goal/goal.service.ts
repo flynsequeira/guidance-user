@@ -12,9 +12,9 @@ export class GoalService {
 
 
   // Observable<Array<Object>>
-  getGoals(user_id):Observable<Object> {
+  getGoals():Observable<Object> {
     var getUserDataUrl = Config.apiUrl + "api/goals/all";
-    let opts = { headers: this.userService.getCommonHeaders(), params: new HttpParams().set('user',user_id) };
+    let opts = { headers: this.userService.getCommonHeaders() };
     return this.http.get(getUserDataUrl, opts)
       .pipe(
         map(response => {

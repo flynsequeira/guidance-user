@@ -60,8 +60,8 @@ export class UserService {
     // let opts = { params: new HttpParams().set('token',this.getToken()) }
     return this.http.get(getUrl, opts)
            .map(res => {
-                this.setValue(res['user']);
-                return res['user'] ? true : false;
+              this.setValue(res['user']);
+              return res['user'] ? true : false;
            })
            .catch(err => this.handleNoUser(err, this.removeToken()));
   }

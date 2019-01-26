@@ -19,9 +19,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // this.route.params.subscribe((params: Params) => {
-      this.goalService.getGoals(this.userService.getValue()['id']).subscribe((res)=>{
-        this.user = res['user'];
-        this.goals = res['goals']
+      // let user_id = this.userService.getValue()['_id'];
+      // console.log(user_id);
+      this.goalService.getGoals().subscribe((res)=>{
+        this.goals = res;
       }, (error) => alert("Something went wrong"));
     // });
   }
