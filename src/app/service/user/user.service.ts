@@ -108,6 +108,18 @@ export class UserService {
         catchError(this.handleErrors)
       );
   }
+  confirmUser(user_id, userType): Observable<Object> {
+    var getUserDataUrl = Config.apiUrl + "api/users/confirm";
+    let opts = { headers: this.getCommonHeaders(), params: new HttpParams().set('user',user_id).set('userType', userType) };
+    return this.http.get(getUserDataUrl, opts)
+      .pipe(
+        map(response => {
+          console.log(response);
+          return response;
+        }),
+        catchError(this.handleErrors)
+      );
+  }
 
   getAllUsers(): Observable<any> {
     var getUserDataUrl = Config.apiUrl + "api/users/all";

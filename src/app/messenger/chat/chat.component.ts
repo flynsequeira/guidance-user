@@ -35,12 +35,9 @@ export class ChatComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.user_id = params['user'];
       this.me = Config.user._id;
-      // this.chatroom = String(this.user_id).concat(this.me);
       // testing chatroom
       this.chatroom="testing";
-      // console.log('checking stuffs');
       this.messageService.getMessageByUser(this.user_id).subscribe((messages)=>{
-        debugger;
         this.messages = messages
       });
       this.webSocketService.joinRoom({user: Config['user']['_id'], room: this.chatroom});

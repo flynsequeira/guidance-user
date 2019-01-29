@@ -1,7 +1,7 @@
 <div class="chat-history">
   <div *ngIf="messages && messages.length>0">
     <div *ngFor="let message of messages">
-      <p [ngClass]="{'blue': message.user==user_id}">{{message.message}}</p>
+      <p [ngClass]="{'blue': message._sender==me}">{{message.message}}</p>
     </div>
   </div>
   <div *ngIf="messages && messages.length==0">

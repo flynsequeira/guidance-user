@@ -24,6 +24,7 @@ import { ChatComponent } from './messenger/chat/chat.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
+import { NotificationComponent } from './notification/notification.component';
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 
@@ -36,7 +37,8 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     AddGoalComponent,
     MessengerComponent,
     ChatComponent,
-    SearchComponent
+    SearchComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

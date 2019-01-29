@@ -8,6 +8,7 @@ import { MessengerComponent } from './messenger/messenger.component';
 import { ChatComponent } from './messenger/chat/chat.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationComponent,
     canActivate: [AuthGuard]
   }
 ];
