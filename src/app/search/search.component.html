@@ -1,0 +1,20 @@
+<div class="container">
+  <!-- <form class="example-form"> -->
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Enter your search here" [(ngModel)]="search">
+  </mat-form-field>
+  <!-- </form>   -->
+  <br>
+  <mat-list role="list">
+    <mat-list-item *ngFor="let user of users; let i = index">
+      <img matListAvatar src="https://via.placeholder.com/100" alt="...">
+      <h3 matLine style="cursor: pointer" (mouseenter)="is-active=true" (mouseleave)="is-active=false"> {{user.firstName}} {{user.lastName}}</h3>
+      <p matLine>
+        <span> {{user.email}} </span> -- 
+        <span *ngIf='user.requested'> Requested connection... </span>
+        <span *ngIf='!user.requested'><button mat-raised-button (click)="requestUser(user._id)"> Send Request </button></span>
+        <br/>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div>

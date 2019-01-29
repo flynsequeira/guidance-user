@@ -7,6 +7,7 @@ import { AddGoalComponent } from './home/add-goal/add-goal.component';
 import { MessengerComponent } from './messenger/messenger.component';
 import { ChatComponent } from './messenger/chat/chat.component';
 import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'chat/:user',
     component: ChatComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
     canActivate: [AuthGuard]
   }
 ];
