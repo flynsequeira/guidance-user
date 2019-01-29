@@ -44,4 +44,14 @@ export class AddGoalComponent implements OnInit {
       this.router.navigate(['user',this.user_id]);
     }, (error) => alert("Something went wrong"));
   }
+  approveChange(){
+    this.goalService.approveChange(this.goal['_id']).subscribe((res)=>{
+      this.router.navigate(['user',this.user_id]);
+    }, (error) => alert("Something went wrong"));
+  }
+  rejectChange(){
+    this.goalService.rejectChange(this.goal['_id']).subscribe((res)=>{
+      this.router.navigate(['user',this.user_id]);
+    }, (error) => alert("Something went wrong"));
+  }
 }

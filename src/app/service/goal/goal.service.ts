@@ -48,4 +48,28 @@ export class GoalService {
         catchError(this.userService.handleErrors)
       );
   }
+
+  approveChange(goal_id): Observable<Object>{
+    var url = Config.apiUrl + "api/goals/approval";
+    let opts = { headers: this.userService.getCommonHeaders(), params: new HttpParams().set('goal',goal_id).set('approve','true') };
+    return this.http.get(url, opts)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.userService.handleErrors)
+      );
+  }
+
+  rejectChange(goal_id): Observable<Object>{
+    var url = Config.apiUrl + "api/goals/approval";
+    let opts = { headers: this.userService.getCommonHeaders(), params: new HttpParams().set('goal',goal_id).set('approve','false') };
+    return this.http.get(url, opts)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.userService.handleErrors)
+      );
+  }
 }

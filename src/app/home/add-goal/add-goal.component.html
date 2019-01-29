@@ -29,3 +29,31 @@
       </div>
     </div>
 </mat-card>
+<br/>
+<div *ngIf="goal.edit && (goal.edit | json) != '{}'">
+    <h5>Your adviser suggested an edit. Would you like to approve it?</h5>
+    <mat-card>
+      <div class="field-container">
+          <mat-form-field>
+            <input matInput [(ngModel)]="goal.edit.name" placeholder="Goal Name">
+          </mat-form-field>
+    
+          <mat-form-field>
+            <textarea matInput [(ngModel)]="goal.edit.description" placeholder="Goal Description"></textarea>
+          </mat-form-field>
+    
+          <div class="field-container">
+            <div *ngFor="let m of goal.edit.milestones; let i=index;">
+              <mat-form-field>
+                <input matInput [(ngModel)]="goal.milestones[i].milestone" placeholder="Milestone">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="mat-button-row">
+              <button mat-stroked-button color="primary" (click)="approveChange()">Approve Change</button>
+              <button mat-button color="warn" (click)="rejectChange()">Reject Change</button>
+          </div>
+        </div>
+    </mat-card>
+</div>
+
