@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user/user.service';
 import { GoalService } from '../service/goal/goal.service';
+import { Config } from '../service/config';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
     // this.route.params.subscribe((params: Params) => {
       // let user_id = this.userService.getValue()['_id'];
       // console.log(user_id);
+      this.user = Config['user'];
       this.goalService.getGoals().subscribe((res)=>{
         this.goals = res;
       }, (error) => alert("Something went wrong"));
