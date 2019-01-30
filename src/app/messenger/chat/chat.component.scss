@@ -10,6 +10,12 @@
     width: 100%;
   }
 
+.chat-history{
+    overflow-y: scroll;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+}
 
 .full-width { 
     width: 100%
@@ -17,4 +23,27 @@
 
 .blue{
     color: red;
+}
+
+.right-block {
+    float:right;
+    width:60%;
+    // background: yellow;
+}
+
+
+.left-block {
+    float:left;
+    width:60%;
+    // background: pink;
+}
+
+.card {
+    // margin: 10 10 10 10px;
+    margin-top: 10px;
+}
+
+.header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
 }

@@ -41,17 +41,17 @@ export class AddGoalComponent implements OnInit {
   }
   saveGoal(){
     this.goalService.saveGoal(this.goal).subscribe((res)=>{
-      this.router.navigate(['user',this.user_id]);
+      this.router.navigate(['']);
     }, (error) => alert("Something went wrong"));
   }
   approveChange(){
     this.goalService.approveChange(this.goal['_id']).subscribe((res)=>{
-      this.router.navigate(['user',this.user_id]);
+      this.router.navigate(['']);
     }, (error) => alert("Something went wrong"));
   }
   rejectChange(){
     this.goalService.rejectChange(this.goal['_id']).subscribe((res)=>{
-      this.router.navigate(['user',this.user_id]);
+      this.router.navigate(['']);
     }, (error) => alert("Something went wrong"));
   }
 }

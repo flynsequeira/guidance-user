@@ -1,21 +1,35 @@
 
 
 <div class="container">
-    <h3> Notifications </h3>
-    <mat-list role="list">
-      <mat-list-item>
-        <h3 matLine> Friend Requests </h3>
-        <mat-list-item *ngFor="let req of notifications.connect_reqs; let i = index">
-            <img matListAvatar src="https://via.placeholder.com/100" alt="...">
-            <h5 matLine style="cursor: pointer" (mouseenter)="is-active=true" (mouseleave)="is-active=false"> {{req.firstName}} {{req.lastName}}</h5>
-            <p matLine>
-              <span> sent you a friend request </span> -- 
-              <span *ngIf="!req.accepted"> <button mat-raised-button (click)="acceptRequest(req._id, req.userType, i)"> Accept Request </button> </span>
-              <span *ngIf='req.accepted'> You are now connected to {{req.firstName || req.lastName || 'this user'}} </span>
-              <br/>
-            </p>
-          </mat-list-item>
-      </mat-list-item>
-    </mat-list>
-  </div>
+  <h3> Notifications </h3>
+  <mat-list role="list">
+    <mat-list-item>
+      <h3 matLine> Friend Requests </h3>
+      <mat-list-item *ngFor="let req of notifications.connect_reqs; let i = index">
+          <img matListAvatar src="https://via.placeholder.com/100" alt="...">
+          <h5 matLine style="cursor: pointer" (mouseenter)="is-active=true" (mouseleave)="is-active=false"> {{req.firstName}} {{req.lastName}}</h5>
+          <p matLine>
+            <span> sent you a friend request </span> -- 
+            <span *ngIf="!req.accepted"> <button mat-raised-button (click)="acceptRequest(req._id, req.userType, i)"> Accept Request </button> </span>
+            <span *ngIf='req.accepted'> You are now connected to {{req.firstName || req.lastName || 'this user'}} </span>
+            <br/>
+          </p>
+        </mat-list-item>
+    </mat-list-item>
+  </mat-list>
+  <mat-list role="list">
+    <mat-list-item>
+      <h3 matLine> Change Requests </h3>
+      <mat-list-item *ngFor="let req of notifications.change_reqs; let i = index">
+          <!-- <img matListAvatar src="https://via.placeholder.com/100" alt="..."> -->
+          <h5 matLine style="cursor: pointer" (mouseenter)="is-active=true" (mouseleave)="is-active=false"> Your adviser</h5>
+          <p matLine>
+            <span> Suggested a change to your Goals </span> -- 
+            <span *ngIf="!req.accepted"> <button mat-raised-button (click)="acceptChange(req._id)"> Verify change and approve </button> </span>
+            <br/>
+          </p>
+        </mat-list-item>
+    </mat-list-item>
+  </mat-list>
+</div>
   
