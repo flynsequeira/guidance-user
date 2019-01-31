@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // this.route.params.subscribe((params: Params) => {
       // let user_id = this.userService.getValue()['_id'];
-      // console.log(user_id);
       this.user = Config['user'];
       this.goalService.getGoals().subscribe((res)=>{
         this.goals = res;

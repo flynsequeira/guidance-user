@@ -19,6 +19,6 @@ export class MessengerComponent implements OnInit {
     })
   }
   chat(_id){
-    console.log(_id);
+    // console.log(_id);
   }
 }

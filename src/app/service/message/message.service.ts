@@ -32,7 +32,6 @@ export class MessageService {
       user: this.messaging_user,
       message: message
     }
-    console.log(msg);
     return this.http.post(url,msg, opts)
       .pipe(
         map(response => {

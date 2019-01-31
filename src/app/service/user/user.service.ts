@@ -102,7 +102,6 @@ export class UserService {
     return this.http.get(getUserDataUrl, opts)
       .pipe(
         map(response => {
-          console.log(response);
           return response;
         }),
         catchError(this.handleErrors)
@@ -114,7 +113,6 @@ export class UserService {
     return this.http.get(getUserDataUrl, opts)
       .pipe(
         map(response => {
-          console.log(response);
           return response;
         }),
         catchError(this.handleErrors)
@@ -136,7 +134,6 @@ export class UserService {
   getConnectedUsers(): Observable<any> {
     var getUserDataUrl = Config.apiUrl + "api/users/connected";
     let opts = { headers: this.getCommonHeaders(), params: new HttpParams() };
-    console.log('getting connected users')
     return this.http.get(getUserDataUrl, opts)
       .pipe(
         map(response => {
@@ -165,7 +162,6 @@ export class UserService {
   }
 
   handleErrors(error: Response) {
-    // console.log(error);
     this.router.navigate(['/login']);
     return throwError(error);
   }
