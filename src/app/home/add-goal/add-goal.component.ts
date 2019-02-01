@@ -54,4 +54,14 @@ export class AddGoalComponent implements OnInit {
       this.router.navigate(['']);
     }, (error) => alert("Something went wrong"));
   }
+  approveRemoval(){
+    this.goalService.approveRemoval(this.goal['_id']).subscribe((res)=>{
+      this.router.navigate(['']);
+    }, (error) => alert("Something went wrong"));
+  }
+  rejectRemoval(){
+    this.goalService.rejectRemoval(this.goal['_id']).subscribe((res)=>{
+      this.router.navigate(['']);
+    }, (error) => alert("Something went wrong"));
+  }
 }

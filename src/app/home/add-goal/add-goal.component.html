@@ -26,11 +26,12 @@
       <br/><hr/>
       <div class="mat-button-row">
           <button mat-stroked-button color="primary" (click)="saveGoal()">Save Goal</button>
-      </div>
+          <button mat-button class='pull-right' color="warn" (click)="approveRemoval()">Remove Goal</button>
+        </div>
     </div>
 </mat-card>
 <br/>
-<div *ngIf="goal.edit && (goal.edit | json) != '{}'">
+<div *ngIf="!goal.suggestRemoval && goal.edit && (goal.edit | json) != '{}'">
     <h5>Your adviser suggested an edit. Would you like to approve it?</h5>
     <mat-card>
       <div class="field-container">
@@ -55,5 +56,17 @@
           </div>
         </div>
     </mat-card>
+</div>
+<div *ngIf='goal.suggestRemoval'>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Your adviser suggested you remove this Goal!</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-actions>
+      <button mat-stroked-button color="primary" (click)="approveRemoval()">Approve Removal</button>
+      <button mat-button class='pull-right' color="warn" (click)="rejectRemoval()">Reject Removal</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
 
