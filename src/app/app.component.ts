@@ -39,6 +39,11 @@ export class AppComponent {
       this.webSocketService.storeId(this.userId);
     });
   }
+  
+  signOut(){
+    this.userService.removeToken();
+    this._router.navigate(['login']);
+  }
 
   private navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
