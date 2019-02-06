@@ -70,7 +70,7 @@ export class UserService {
     return this.http.post(
       Config.apiUrl + "api/users/register",
       userInfo,
-      { headers: this.getCommonHeaders() }
+      { headers: new HttpHeaders({'Content-Type':  'application/json'}) }
     ).pipe(
       map(response => {
         this.setToken(response['token'])
