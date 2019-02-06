@@ -33,7 +33,6 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    
     this.userService.getUserData().subscribe((user)=>{
       this.userId = this.userService.getValue()['_id'];
       this.webSocketService.storeId(this.userId);

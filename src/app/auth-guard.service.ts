@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if (token && token.length>0){
       return this.userService.getUserData().map(isAuth => {
         this.user = this.userService.getValue();
-        if(this.user){
+        if(this.user && this.user['userType']=='general'){
           return true;
         }
         else{

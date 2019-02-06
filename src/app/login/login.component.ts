@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   signUp(userInfo: NgForm) {
     if(userInfo.valid){
-      userInfo.value.userType = 'adviser';
+      userInfo.value.userType = 'general';
       this.userService.register(userInfo.value)
       .subscribe(
         () => {
